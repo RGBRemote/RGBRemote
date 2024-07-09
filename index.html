@@ -134,9 +134,12 @@ function updateColor(r,g,b){
     document.querySelector('.box').style.background = `rgb(${r},${g},${b})`;
 }
 
-redRange.addEventListener('mouseup', function(){sendColorValues(redRange.value, greenRange.value, blueRange.value); updateColor(redRange.value, greenRange.value, blueRange.value)});
-greenRange.addEventListener('mouseup',function(){sendColorValues(redRange.value, greenRange.value, blueRange.value); updateColor(redRange.value, greenRange.value, blueRange.value)});
-blueRange.addEventListener('mouseup', function(){sendColorValues(redRange.value, greenRange.value, blueRange.value); updateColor(redRange.value, greenRange.value, blueRange.value)});
+const events = ['mouseup', 'touchend'];
+events.forEach(e => {
+    redRange.addEventListener(e, function(){sendColorValues(redRange.value, greenRange.value, blueRange.value); updateColor(redRange.value, greenRange.value, blueRange.value)});
+    greenRange.addEventListener(e,function(){sendColorValues(redRange.value, greenRange.value, blueRange.value); updateColor(redRange.value, greenRange.value, blueRange.value)});
+    blueRange.addEventListener(e, function(){sendColorValues(redRange.value, greenRange.value, blueRange.value); updateColor(redRange.value, greenRange.value, blueRange.value)});
+})
 
 </script>
 </body>
